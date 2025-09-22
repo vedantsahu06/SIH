@@ -8,7 +8,7 @@ import {
   IconNewSection,
   IconTerminal2,
 } from "@tabler/icons-react";
-
+import student from "../components/Students/StudentsLandingPage"
 export function FloatingDockDemo() {
   const links = [
     {
@@ -42,12 +42,12 @@ export function FloatingDockDemo() {
     {
       title: "Changelog",
       icon: <IconExchange className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
-      to: "/login",
+      to: "/changelog",
     },
     {
       title: "Twitter",
       icon: <IconBrandX className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
-      to: "https://twitter.com/",
+      to: "student",
       external: true,
     },
     {

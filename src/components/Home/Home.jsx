@@ -4,18 +4,10 @@ import Aurora from "../Aurora";
 import Carousel from "../Carousel";
 import SplitText from "../SplitText";
 import ScrollStack, { ScrollStackItem } from "../ScrollStack";
-import { useNavigate } from "react-router-dom";
 
 function Home() {
-  const navigate = useNavigate();
-
   const handleAnimationComplete = () => {
     console.log("All letters have animated!");
-  };
-
-  // Generic handler for all Get Started buttons
-  const handleGetStarted = (role) => {
-    navigate("/login", { state: { scrollToCard: true, selectedRole: role } });
   };
 
   return (
@@ -106,10 +98,7 @@ function Home() {
 
         {/* CTA buttons */}
         <div className="flex justify-center gap-4">
-          <button
-            onClick={() => handleGetStarted("Student")}
-            className="px-6 py-3 rounded-xl bg-blue-600 text-white font-medium hover:bg-blue-200 transition"
-          >
+          <button className="px-6 py-3 rounded-xl bg-blue-600 text-white font-medium hover:bg-blue-200 transition">
             Get Started
           </button>
           <button className="px-6 py-3 rounded-xl border border-blue-600 text-emerald-100 font-medium hover:bg-emerald-50 hover:text-emerald-700 transition">
@@ -141,121 +130,112 @@ function Home() {
         <div className="w-full flex justify-center items-center space-x-4 px-4">
           <Carousel
             baseWidth={300}
-            autoplay
+            autoplay={true}
             autoplayDelay={2000}
-            pauseOnHover
-            loop
+            pauseOnHover={true}
+            loop={true}
             round={false}
           />
           <Carousel
             baseWidth={300}
-            autoplay
+            autoplay={true}
             autoplayDelay={2000}
-            pauseOnHover
-            loop
+            pauseOnHover={true}
+            loop={true}
             round={false}
           />
           <Carousel
             baseWidth={300}
-            autoplay
+            autoplay={true}
             autoplayDelay={2000}
-            pauseOnHover
-            loop
+            pauseOnHover={true}
+            loop={true}
             round={false}
           />
         </div>
       </div>
 
       {/* Scroll Stack Section */}
+ 
       <div className="flex justify-center pb-[12rem]">
-        <div className="w-[1050px]">
-          <ScrollStack>
-            {/* Companies */}
-            <ScrollStackItem className="relative">
-              <h1 className="md:text-5xl font-serif mb-6">Companies</h1>
-              <ul className="space-y-2 mb-6">
-                <li className="flex items-center">
-                  <span className="w-2 h-2 bg-white rounded-full mr-2"></span>
-                  Gives You Opportunity
-                </li>
-                <li className="flex items-center">
-                  <span className="w-2 h-2 bg-white rounded-full mr-2"></span>
-                  Stay Updated with Latest Announcements
-                </li>
-              </ul>
-              <img
-                src="/buildingSvg.svg"
-                alt="Buildings"
-                className="absolute right-4 top-15 w-48 h-auto"
-              />
-              <div className="mt-6">
-                <button
-                  onClick={() => handleGetStarted("Company")}
-                  className="bg-blue-600 hover:bg-blue-400 text-white font-semibold py-2 px-6 rounded-lg shadow-md transition duration-300 inline-block text-center"
-                >
-                  Get Started
-                </button>
-              </div>
-            </ScrollStackItem>
-
-            {/* Faculties */}
-            <ScrollStackItem className="relative mt-16">
-              <h1 className="md:text-5xl font-serif mb-6">Faculties</h1>
-              <ul className="space-y-2 mb-6">
-                <li className="flex items-center">
-                  <span className="w-2 h-2 bg-white rounded-full mr-2"></span>
-                  Bridging classrooms to opportunities
-                </li>
-                <li className="flex items-center">
-                  <span className="w-2 h-2 bg-white rounded-full mr-2"></span>
-                  Empowering learners through expertise
-                </li>
-              </ul>
-              <img
-                src="/teacher.svg"
-                alt="teacher"
-                className="absolute right-10 top-16 w-40 h-auto"
-              />
-              <div className="mt-6">
-                <button
-                  onClick={() => handleGetStarted("Faculty")}
-                  className="bg-blue-600 hover:bg-blue-400 text-white font-semibold py-2 px-6 rounded-lg shadow-md transition duration-300 inline-block text-center"
-                >
-                  Get Started
-                </button>
-              </div>
-            </ScrollStackItem>
-
-            {/* Students */}
-            <ScrollStackItem className="relative mt-16">
-              <h1 className="md:text-5xl font-serif mb-6">Students</h1>
-              <ul className="space-y-2 mb-6">
-                <li className="flex items-center">
-                  <span className="w-2 h-2 bg-white rounded-full mr-2"></span>
-                  Learn and grow with peers
-                </li>
-                <li className="flex items-center">
-                  <span className="w-2 h-2 bg-white rounded-full mr-2"></span>
-                  Access latest resources and guidance
-                </li>
-              </ul>
-              <img
-                src="/student.svg"
-                alt="student"
-                className="absolute right-4 top-15 w-50 h-auto"
-              />
-              <div className="mt-6">
-                <button
-                  onClick={() => handleGetStarted("Student")}
-                  className="bg-blue-600 hover:bg-blue-400 text-white font-semibold py-2 px-6 rounded-lg shadow-md transition duration-300 inline-block text-center"
-                >
-                  Get Started
-                </button>
-              </div>
-            </ScrollStackItem>
-          </ScrollStack>
+  <div className="w-[1050px]">
+    <ScrollStack>
+      <ScrollStackItem className="relative">
+        <h1 className="md:text-5xl font-serif mb-6">Companies</h1>
+        <ul className="space-y-2 mb-6">
+          <li className="flex items-center">
+            <span className="w-2 h-2 bg-white rounded-full mr-2"></span>
+            Gives You Opportunity
+          </li>
+          <li className="flex items-center">
+            <span className="w-2 h-2 bg-white rounded-full mr-2"></span>
+            Stay Updated with Latest Announcements
+          </li>
+        </ul>
+        <img
+          src="/buildingSvg.svg"
+          alt="Buildings"
+          className="absolute right-4 top-15 w-48 h-auto"
+        />
+        <div className="mt-6">
+          <button className="bg-blue-600 hover:bg-blue-400 text-white font-semibold py-2 px-6 rounded-lg shadow-md transition duration-300">
+            Get Started
+          </button>
         </div>
-      </div>
+      </ScrollStackItem>
+
+      <ScrollStackItem className="relative mt-16">
+        <h1 className="md:text-5xl font-serif mb-6">Faculties</h1>
+        <ul className="space-y-2 mb-6">
+          <li className="flex items-center">
+            <span className="w-2 h-2 bg-white rounded-full mr-2"></span>
+            Bridging classrooms to opportunities
+          </li>
+          <li className="flex items-center">
+            <span className="w-2 h-2 bg-white rounded-full mr-2"></span>
+            Empowering learners through expertise
+          </li>
+        </ul>
+        <img
+          src="/teacher.svg"
+          alt="teacher"
+          className="absolute right-10 top-16 w-40 h-auto"
+        />
+        <div className="mt-6">
+          <button className="bg-blue-600 hover:bg-blue-400 text-white font-semibold py-2 px-6 rounded-lg shadow-md transition duration-300">
+            Get Started
+          </button>
+        </div>
+      </ScrollStackItem>
+
+      <ScrollStackItem className="relative mt-16">
+        <h1 className="md:text-5xl font-serif mb-6">Students</h1>
+        <ul className="space-y-2 mb-6">
+          <li className="flex items-center">
+            <span className="w-2 h-2 bg-white rounded-full mr-2"></span>
+            Learn and grow with peers
+          </li>
+          <li className="flex items-center">
+            <span className="w-2 h-2 bg-white rounded-full mr-2"></span>
+            Access latest resources and guidance
+          </li>
+        </ul>
+        <img
+          src="/student.svg"
+          alt="student"
+          className="absolute right-4 top-15 w-50 h-auto"
+        />
+        <div className="mt-6">
+          <button className="bg-blue-600 hover:bg-blue-400 text-white font-semibold py-2 px-6 rounded-lg shadow-md transition duration-300">
+            Get Started
+          </button>
+        </div>
+      </ScrollStackItem>
+    </ScrollStack>
+  </div>
+</div>
+
+
     </div>
   );
 }
